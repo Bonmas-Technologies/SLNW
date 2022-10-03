@@ -8,12 +8,12 @@ namespace SLNW.Standart
     {
         public double Activation(double input)
         {
-            return input >= 0 ? input : input * 0.01;
+            return input >= 0 ? input : input * -0.01;
         }
 
         public double Delta(double input)
         {
-            return input >= 0 ? 1 : 0.01;
+            return input >= 0 ? 1 : -0.01;
 
         }
     }
