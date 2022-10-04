@@ -15,7 +15,7 @@
 
         delegate double NeruonFunction(double input);
 
-        public Neuron(double learnSpeed, IActivationFunc functions, double[] weights) // todo: нормальная фабрика нейросети и нейронов
+        public Neuron(double learnSpeed, IActivationFunc functions, double[] weights)
         {
             _learnSpeed = learnSpeed;
             _weights = weights.Clone() as double[];

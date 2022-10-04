@@ -10,7 +10,7 @@ namespace SLNW.BasicTest
         {
             int[] maket = { 2, 4, 1 };
 
-            var network = NetworkFabric.CreateNetwork(maket, new Sigmoid(), 0.2);
+            var network = NetworkFabric.CreateNetwork(maket, new LeakyReLU(), 0.2);
 
             double[][] tests =
             {

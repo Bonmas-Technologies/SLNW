@@ -50,7 +50,7 @@ namespace SLNW
             for (int i = 0; i < outputLayerError.Length; i++)
                 outputLayerError[i] = input[i] - currentOutput[i];
 
-            List<double[]> error = new List<double[]>() { outputLayerError };
+            double[][] error = new double[][] { outputLayerError };
 
             for (int i = _layers.Length - 1; i >= 0; i--)
             {

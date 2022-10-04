@@ -14,18 +14,18 @@ namespace SLNW.Core
             countOfNeurons = neurons.Length;
         }
 
-        public List<double[]> PropogateError(List<double[]> nextErrors)
+        public double[][] PropogateError(double[][] nextErrors)
         {
-            List<double[]> currentErrors = new List<double[]>(countOfNeurons);
+            double[][] currentErrors = new double[countOfNeurons][];
 
             for (int i = 0; i < countOfNeurons; i++)
             {
                 double[] errorForNeuron = new double[countOfNeurons];
 
-                for (int j = 0; j < nextErrors.Count; j++)
+                for (int j = 0; j < nextErrors.Length; j++)
                     errorForNeuron[j] = nextErrors[j][i];
 
-                currentErrors.Add(_neurons[i].PropogateError(errorForNeuron));
+                currentErrors[i] = _neurons[i].PropogateError(errorForNeuron);
             }
 
             return currentErrors;

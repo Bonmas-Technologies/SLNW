@@ -12,7 +12,9 @@ namespace SLNW.Standart
 
         public double Delta(double input)
         {
-            return Activation(input) * (1 - Activation(input));
+            double activated = Activation(input);
+
+            return activated * (1 - activated);
         }
     }
 }
