@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using SLNW;
 using SLNW.Standart;
 
@@ -10,7 +12,7 @@ namespace SLNW.BasicTest
         {
             int[] maket = { 2, 4, 1 };
 
-            var network = NetworkFabric.CreateNetwork(maket, new LeakyReLU(), 0.2);
+            var network = NetworkBuilder.BuildNetwork(maket, new LeakyReLU(), 0.2);
 
             double[][] tests =
             {
@@ -36,12 +38,25 @@ namespace SLNW.BasicTest
                     network.Learn(learn[j]);
                 }
             }
+            Console.WriteLine("===Network-test===");
+            Test(network, tests, learn);
 
+            Console.WriteLine("===Save-load-test===");
+            NetworkBuilder.SaveNetwork(network, "network.nw");
+            var sNetwork = NetworkBuilder.LoadNetwork("network.nw");
+
+            Test(sNetwork, tests, learn);
+        }
+
+        private static void Test(NerualNetwork network, double[][] tests, double[][] learn)
+        {
             WriteDoubleArray(network.Update(tests[1]));
             Console.WriteLine(network.GetError(learn[1]).ToString("0.0000"));
 
             WriteDoubleArray(network.Update(tests[3]));
             Console.WriteLine(network.GetError(learn[3]).ToString("0.0000"));
+
+            Console.WriteLine();
         }
 
         private static void WriteDoubleArray(double[] outputs)

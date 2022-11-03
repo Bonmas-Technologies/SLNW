@@ -1,9 +1,9 @@
 ﻿using System;
 using SLNW.Core;
 
-
 namespace SLNW.Standart
 {
+    [Serializable]
     public class LeakyReLU : IActivationFunc
     {
         public double Activation(double input)

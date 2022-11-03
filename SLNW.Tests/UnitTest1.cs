@@ -13,8 +13,8 @@ namespace SLNW.Tests
         {
             int[] maket = { 4, 8, 4 };
 
-            var networkA = NetworkFabric.CreateNetwork(maket, new Sigmoid(), 0.5);
-            var networkB = NetworkFabric.CreateNetwork(maket, new Sigmoid(), 0.5);
+            var networkA = NetworkBuilder.BuildNetwork(maket, new Sigmoid(), 0.5);
+            var networkB = NetworkBuilder.BuildNetwork(maket, new Sigmoid(), 0.5);
 
             Assert.AreNotSame(networkA, networkB); // idiotic test. i delete this 
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bonmas14\\Source\\Repos\\SLNW_Git\\SLNW\\SLNW.csproj": {}
+    "C:\\Users\\bonmas14\\source\\repos\\SLNW_Git\\SLNW\\SLNW.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bonmas14\\Source\\Repos\\SLNW_Git\\SLNW\\SLNW.csproj": {
+    "C:\\Users\\bonmas14\\source\\repos\\SLNW_Git\\SLNW\\SLNW.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bonmas14\\Source\\Repos\\SLNW_Git\\SLNW\\SLNW.csproj",
+        "projectUniqueName": "C:\\Users\\bonmas14\\source\\repos\\SLNW_Git\\SLNW\\SLNW.csproj",
         "projectName": "SLNW",
-        "projectPath": "C:\\Users\\bonmas14\\Source\\Repos\\SLNW_Git\\SLNW\\SLNW.csproj",
+        "projectPath": "C:\\Users\\bonmas14\\source\\repos\\SLNW_Git\\SLNW\\SLNW.csproj",
         "packagesPath": "C:\\Users\\bonmas14\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bonmas14\\Source\\Repos\\SLNW_Git\\SLNW\\obj\\",
+        "outputPath": "C:\\Users\\bonmas14\\source\\repos\\SLNW_Git\\SLNW\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bonmas14\\AppData\\Roaming\\NuGet\\NuGet.Config",

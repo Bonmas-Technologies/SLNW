@@ -1,7 +1,9 @@
 ﻿using System;
 using SLNW.Core;
+
 namespace SLNW.Standart
 {
+    [Serializable]
     public class SoftPlus : IActivationFunc
     {
         public double Activation(double input)

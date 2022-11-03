@@ -3,6 +3,7 @@ using SLNW.Core;
 
 namespace SLNW.Standart
 {
+    [Serializable]
     public class Sigmoid : IActivationFunc
     {
         public double Activation(double input)

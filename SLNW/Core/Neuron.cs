@@ -1,27 +1,24 @@
-﻿namespace SLNW.Core
+﻿using System;
+
+namespace SLNW.Core
 {
+    [Serializable]
     public sealed class Neuron
     {
         public double output;
         
-        private readonly double _learnSpeed;
-
         private double _error;
         private double _sumout;
         private double[] _weights;
 
-        private readonly NeruonFunction _activation;
-        private readonly NeruonFunction _delta;
+        private IActivationFunc _functions;
 
-        delegate double NeruonFunction(double input);
 
-        public Neuron(double learnSpeed, IActivationFunc functions, double[] weights)
+        public Neuron(IActivationFunc functions, double[] weights)
         {
-            _learnSpeed = learnSpeed;
             _weights = weights.Clone() as double[];
 
-            _activation = functions.Activation;
-            _delta = functions.Delta;
+            _functions = functions;
         }
 
         public void InsertData(double[] data)
@@ -36,7 +33,7 @@
                     _sumout += data[i] * _weights[i];
             }
 
-            output = _activation.Invoke(_sumout);
+            output = _functions.Activation(_sumout);
         }
 
         public double[] PropogateError(double[] inputError)
@@ -54,16 +51,16 @@
             return outputError;
         }
 
-        public void CorrectWeights(double[] prewLayerOutputs)
+        public void CorrectWeights(double[] prewLayerOutputs, double learnSpeed)
         {
-            double delta = _error * _delta.Invoke(_sumout);
+            double delta = _error * _functions.Delta(_sumout);
 
             for (int i = 0; i < (prewLayerOutputs.Length + 1); i++)
             {
                 if (i == prewLayerOutputs.Length)
-                    _weights[i] += _learnSpeed * delta * 1d;
+                    _weights[i] += learnSpeed * delta * 1d;
                 else
-                    _weights[i] += _learnSpeed * delta * prewLayerOutputs[i];
+                    _weights[i] += learnSpeed * delta * prewLayerOutputs[i];
 
             }
         }

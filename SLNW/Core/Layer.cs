@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace SLNW.Core
 {
+    [Serializable]
     public sealed class Layer
     {
         public readonly int countOfNeurons;
@@ -31,10 +32,10 @@ namespace SLNW.Core
             return currentErrors;
         }
 
-        public void CorrectLayerWeights(double[] previousOutputs)
+        public void CorrectLayerWeights(double[] previousOutputs, double learnSpeed)
         {
             for (int i = 0; i < countOfNeurons; i++)
-                _neurons[i].CorrectWeights(previousOutputs);
+                _neurons[i].CorrectWeights(previousOutputs, learnSpeed);
         }
 
 

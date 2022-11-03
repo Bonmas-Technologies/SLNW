@@ -4,12 +4,15 @@ using System.Collections.Generic;
 
 namespace SLNW
 {
+    [Serializable]
     public sealed class NerualNetwork
     {
         private Layer[] _layers;
+        private double _learnSpeed;
 
-        public NerualNetwork(Layer[] layers)
+        public NerualNetwork(Layer[] layers, double learnSpeed)
         {
+            _learnSpeed = learnSpeed;
             _layers = layers;
         }
 
@@ -61,7 +64,7 @@ namespace SLNW
         private void CorrectLayersWeights()
         {
             for (int i = 1; i < _layers.Length; i++)
-                _layers[i].CorrectLayerWeights(_layers[i - 1].GetOutput());
+                _layers[i].CorrectLayerWeights(_layers[i - 1].GetOutput(), _learnSpeed);
         }
     }
 }
